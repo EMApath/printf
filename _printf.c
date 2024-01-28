@@ -14,15 +14,15 @@
 int _printf(const char *format, ...)
 {
 	
-	int i;
+	/*int i;*/
 	int printed_num = 0;
 	va_list list;	
 	va_start(list, format);
-	char *chars = format;
+	/*char *chars = format;*/
 
-  	for (i = 0; *chars != '\0'; chars++)
+  	for (i = 0; *format != '\0'; format++)
 	{
-		if (*chars != '%')
+		if (*format != '%')
 		{
 			_putchar(*chars);
 			printed_num++;
