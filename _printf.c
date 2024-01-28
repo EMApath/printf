@@ -32,12 +32,14 @@ int _printf(const char *format, ...)
 				_putchar(var_char);
 			}
 
-			else if (*chars == 's')
+			if (*chars == 's')
 			{
 				char *var_string = va_arg(list ,char *);
 				for (i = 0; *var_string != '\0'; var_string++)
 					_putchar(*var_string);
 			}
+			if (*chars == '%')
+				_putchar('%');
 		}
 	}
 	va_end(list);
