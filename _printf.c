@@ -17,41 +17,42 @@ int _printf(const char *format, ...)
 
 	va_list list;
 	va_start(list, format);
-	char *chars = format;
+	/*char *chars = format;*/
 
-  	for (i = 0; *format != '\0'; format++)
+  	for (i = 0; format[i] != '\0'; i++)
 	
-	char *chars = format;
+	/*char *chars = format*/
+	/*for (i = 0; *chars != '\0'; chars++)*/
 
-	for (i = 0; *chars != '\0'; chars++)
 	{
-		if (*format != '%')
+		if (format[i] != '%')
 		{
-			_putchar(*chars);
+			_putchar(format[i]);
 			printed_num++;
 		}
 		else
 		{
-			chars++;
-			if (*chars == 'c')
+			i++;
+			if (*format == 'c')
 			{
-				char var_char = va_arg(list, char);
+				int var_char = va_arg(list, int);
 
 				_putchar(var_char);
 				printed_num++;
 			}
 
-			if (*chars == 's')
+			if (format[i] == 's')
 			{
 				char *var_string = va_arg(list, char *);
-				
-				for (i = 0; *var_string != '\0'; var_string++)
+				int k;
+
+				for (k = 0; var_string[k] != '\0'; var_string++)
 				{
 					_putchar(*var_string);
 					printed_num++;
 				}
 			}
-			if (*chars == '%')
+			if (format[i] == 37)
 			{
 				_putchar('%');
 				printed_num++;
