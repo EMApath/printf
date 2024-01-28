@@ -1,25 +1,43 @@
-#include <stdio.h>
-#include <stdarg.h>
 #include "main.h"
+
 /**
- * _printf - produces output according to a format
- * @format: format string to be produced
- * @...: variable number of arguments to be produced
+ * _printf- prints out a character into std output
  *
- * Return: on success number of printed charecters
- * Return: a negative value on error
+ * @format: charracter to be printed
+ * Return: number of charachters printed
  */
+
 int _printf(const char *format, ...)
 {
-	/* return num of charecters printed*/
-	int length = 0;
-	length = strlen(format);
+	int i;
+	char var_char;
+	char *var_string;
+	va_list list;	
+	va_start(list, format);
+	
+	char *chars = format;
 
-	/*declare pointer to arg list*/
-	va_list pstr;
-
-	/*intialize arguments to the list pointer*/
-	va_start(pstr, format):wq;
-
-	return (length);
+  	for (i = 0; *chars != '\0'; chars++)
+	{
+		if (*chars != '%')
+		{
+			_putchar(*chars);
+		}
+		else
+		{
+			chars++;
+			printf("222");
+			if (*chars == "c")
+				var_char = va_arg(format ,char);
+			
+			else if (*(chars) == "s")
+			{
+				printf("111");
+				*var_string = va_arg(format ,char *);
+				for (i = 0; *var_string != '\0'; var_string++)
+					_putchar(*var_string);
+			}
+		}
+	}
+	va_end(list);
 }
