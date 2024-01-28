@@ -26,15 +26,14 @@ int _printf(const char *format, ...)
 		else
 		{
 			chars++;
-			if (*chars == "c")
+			if (*chars == 'c')
 			{
 				char var_char = va_arg(list ,char);
 				_putchar(var_char);
 			}
 
-			else if (*chars == "s")
+			else if (*chars == 's')
 			{
-				printf("111");
 				char *var_string = va_arg(list ,char *);
 				for (i = 0; *var_string != '\0'; var_string++)
 					_putchar(*var_string);
