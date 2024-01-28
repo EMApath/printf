@@ -1,14 +1,19 @@
+#include <stdarg.h>
+#include <stdio.h>
 #include "main.h"
 
 /**
  * _printf- prints out a character into std output
  *
- * @format: charracter to be printed
+ * @format: format string with string literals and specifiers
+ * @args: passed arguments to be ccnverted into their values
+ * 
  * Return: number of charachters printed
  */
 
 int _printf(const char *format, ...)
 {
+	
 	int i;
 	int printed_num = 0;
 	va_list list;	
