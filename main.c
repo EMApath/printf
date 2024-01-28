@@ -11,7 +11,7 @@ int main(void)
 {
       char *len = "1000";
 
-      _printf("Length:[%s]sssss\n",len);
-      printf("Length:[%s]sssssss\n",len);
+      _printf("Length:[%s]ddddd\n",len);
+      printf("Length:[%s]ddddd\n",len);
       return (0);
 }

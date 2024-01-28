@@ -10,8 +10,8 @@
 int _printf(const char *format, ...)
 {
 	int i;
-	char var_char;
-	char *var_string;
+
+
 	va_list list;	
 	va_start(list, format);
 	
@@ -26,14 +26,16 @@ int _printf(const char *format, ...)
 		else
 		{
 			chars++;
-			printf("222");
 			if (*chars == "c")
-				var_char = va_arg(format ,char);
-			
-			else if (*(chars) == "s")
+			{
+				char var_char = va_arg(list ,char);
+				_putchar(var_char);
+			}
+
+			else if (*chars == "s")
 			{
 				printf("111");
-				*var_string = va_arg(format ,char *);
+				char *var_string = va_arg(list ,char *);
 				for (i = 0; *var_string != '\0'; var_string++)
 					_putchar(*var_string);
 			}
