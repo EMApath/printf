@@ -27,7 +27,6 @@ int _printf(const char *format, ...)
 			i++;
 			if (*format == 'c')
 			{
-	/*function expects an int not a char type*/
 				int var_char = va_arg(list, int);
 
 				_putchar(var_char);
