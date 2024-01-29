@@ -25,7 +25,7 @@ int _printf(const char *format, ...)
 		else
 		{
 			i++;
-			if (*format == 'c')
+			if (format[i] == 'c')
 			{
 				int var_char = va_arg(list, int);
 
@@ -43,7 +43,7 @@ int _printf(const char *format, ...)
 					printed_num++;
 				}
 			}
-			if (format[i] == 37)
+			if (format[i] == '%')
 			{
 				_putchar('%');
 				printed_num++;
@@ -51,5 +51,5 @@ int _printf(const char *format, ...)
 		}
 	}
 	va_end(list);
-	return (printed_num);
+	return printed_num;
 }
