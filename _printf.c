@@ -1,15 +1,12 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include "main.h"
-
 /**
  * _printf- prints out a character into std output
  *
  * @format: format string with string literals and specifiers
- *
  * Return: number of charachters printed
  */
-
 int _printf(const char *format, ...)
 {
 	int i;
@@ -17,13 +14,8 @@ int _printf(const char *format, ...)
 
 	va_list list;
 	va_start(list, format);
-	/*char *chars = format;*/
 
-  	for (i = 0; format[i] != '\0'; i++)
-	
-	/*char *chars = format*/
-	/*for (i = 0; *chars != '\0'; chars++)*/
-
+	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] != '%')
 		{
@@ -35,12 +27,12 @@ int _printf(const char *format, ...)
 			i++;
 			if (*format == 'c')
 			{
+	/*function expects an int not a char type*/
 				int var_char = va_arg(list, int);
 
 				_putchar(var_char);
 				printed_num++;
 			}
-
 			if (format[i] == 's')
 			{
 				char *var_string = va_arg(list, char *);
