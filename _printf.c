@@ -16,7 +16,7 @@ int _printf(const char *format, ...)
 
 	va_list list;
 	va_start(list, format);
-	
+
 	if (format == NULL)
 		return (-1);
 
@@ -32,7 +32,6 @@ int _printf(const char *format, ...)
 			i++;
 			if (format[i] == 'c')
 			{
-			/*function expects an int not a char type*/
 				int var_char = va_arg(list, int);
 
 				_putchar(var_char);
@@ -62,5 +61,5 @@ int _printf(const char *format, ...)
 		}
 	}
 	va_end(list);
-	return printed_num;
+	return (printed_num);
 }
