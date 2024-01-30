@@ -24,16 +24,17 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			i++;
-			if (format[i] == 'c')
+			while (format[i] == '%')
+			{
+			if (format[i + 1] == 'c')
 			{
 				int var_char = va_arg(list, int);
 
 				_putchar(var_char);
 				printed_num++;
 			}
-			if (format[i] == 's')
-			{
+			if (format[i + 1] == 's')
+			{	
 				char *var_string = va_arg(list, char *);
 				int k;
 
@@ -43,13 +44,15 @@ int _printf(const char *format, ...)
 					printed_num++;
 				}
 			}
-			if (format[i] == '%')
+			if (format[i + 1] == '%')
 			{
 				_putchar('%');
 				printed_num++;
 			}
+			i++;
+			}	
 		}
-	}
 	va_end(list);
+	}
 	return printed_num;
 }

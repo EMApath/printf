@@ -1,0 +1,53 @@
+#include <stdarg.h>
+#include <stdio.h>
+#include "main.h"
+/**
+ * _printf2 - prints a formated strinng to stdout
+ *
+ * @format: string to be printed
+ * @...: expected arguments
+ *
+ * Return: On success number of printed charecters
+ * Return: -1 On fail
+ */
+int _printf2(const char *format, ...)
+{
+	int i, print_c = 0;
+	va_list list;
+	va_start (list, format);
+
+	if (format[i] != '\0')
+	{
+	for (i = 0; format[i] == '%'; i++)
+	{
+		if (format[i] == 'c')
+		{
+		int var_char = va_arg(list, int);
+		_putchar(var_char);
+		print_c++;
+		}
+		else if (format[i] == 's')
+		{
+		char *var_string = va_arg(list, char *);
+		int k;
+
+		for (k = 0; var_string[k] != '\0'; var_string++)
+		_putchar(*var_string);
+		print_c++;
+		}
+		else if (format[i] == '%')
+		{
+		_putchar('%');
+		print_c++;
+		}
+	}
+	}
+	else 
+	{
+		_putchar(format[i]);
+		print_c++;
+	}
+	}
+	va_end(list);
+	return print_c;
+}
