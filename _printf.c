@@ -5,6 +5,8 @@
  * _printf- prints out a character into std output
  *
  * @format: format string with string literals and specifiers
+ * @...: variable number of arguments
+ *
  * Return: number of charachters printed
  */
 int _printf(const char *format, ...)
@@ -47,6 +49,11 @@ int _printf(const char *format, ...)
 			{
 				_putchar('%');
 				printed_num++;
+			}
+			else
+			{
+			_putchar(format[i]);
+			printed_num++;
 			}
 		}
 	}
